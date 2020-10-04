@@ -1,0 +1,70 @@
+mixin navbar(user)
+    
+    // Offcanvas Menu Begin
+    .offcanvas-menu-overlay
+    .offcanvas-menu-wrapper
+      .offcanvas__option
+        .offcanvas__top__hover
+          span
+            | Usd 
+            i.arrow_carrot-down
+          ul
+            li USD
+            li EUR
+            li USD
+      .offcanvas__nav__option
+        a.search-switch(href='#')
+          img(src='img/icon/search.png' alt='')
+        a(href='#')
+          img(src='img/icon/heart.png' alt='')
+        a(href='#')
+          img(src='img/icon/cart.png' alt='')
+          span 0
+        .price $0.00
+      #mobile-menu-wrap
+      .offcanvas__text
+        p Free shipping, 30-day return or refund guarantee.
+    // Offcanvas Menu End
+    // Header Section Begin
+    header.header
+      .container
+        .row
+          .col-lg-3.col-md-3
+            .header__logo
+              a(href='/')
+                img(src='img/hero/reggae_banner5.png' alt='')
+          .col-lg-6.col-md-6
+            nav.header__menu.mobile-menu
+              ul
+                li.active
+                  a(href='/') Home
+                li
+                  a(href='/') Men
+                li
+                  a(href='/') Women
+                //-   ul.dropdown
+                    li
+                      a(href='./about.html') About Us
+                    li
+                      a(href='./shop-details.html') Shop Details
+                    li
+                      a(href='./shopping-cart.html') Shopping Cart
+                    li
+                      a(href='./checkout.html') Check Out
+                    li
+                      a(href='./blog-details.html') Blog Details
+                li
+                  a(href='/') Accessories
+                li
+                  a(href='/') Cds/Vinyls
+                
+          .col-lg-3.col-md-3
+            .header__nav__option
+              a.search-switch(href='#' style="font-size: 18px;color: #111111;font-weight: 600;position: relative;padding: 3px 0;") Login
+                
+              a(href='#')
+                img(src='img/icon/cart.png' alt='')
+                span 0
+              .price(style="top:unset") £0.00
+        .canvas__open
+          i.fa.fa-bars
