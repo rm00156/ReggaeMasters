@@ -1,0 +1,4 @@
+.env,
+sqlscripts,
+config,
+node_modules
