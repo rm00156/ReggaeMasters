@@ -39,31 +39,9 @@
  
         "dialect": "mysql"
  
-    },
+    }
  
-    "production": {
- 
-        "username": "b5768bab4af161",
- 
-        "password": "a34e94fa",
- 
-        "database": "heroku_952dd57c8a20043",
- 
-        "host": "eu-cdbr-west-03.cleardb.net",
- 
-        "dialect": "mysql"
- 
-    },
- 
-    "mailServer_email": "trainers4you1@outlook.com", 
-    "mailServer_password" :"Liverpool123",
-    "mailServer_host":"smtp-mail.outlook.com",
-
-    "secretAccessKey":"iAe3VgjmEA958hE/7NcHEFoKVdoinExiA6LsyILe",
-    "accessKeyId":"AKIAJAF6372UVMSBSF3Q",
-    "region":"eu-west-2",
-    "s3BucketPath":"https://trainers4you1.s3.eu-west-2.amazonaws.com/",
-    "bucketName":"trainers4you1"
+   
 
 }
 
