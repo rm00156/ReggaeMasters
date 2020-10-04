@@ -1,0 +1,15 @@
+version: "3.5"
+
+services:
+  reggae_masters:
+    image: reggae_masters
+    container_name: reggae_masters
+    build: 
+      context: ./
+    networks: 
+      - reggae_masters_network
+    environment:
+      NODE_ENV: "production"
+networks:
+  reggae_masters_network:
+    external: true
