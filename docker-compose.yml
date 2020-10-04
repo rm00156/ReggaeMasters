@@ -5,7 +5,7 @@ services:
     image: reggae_masters
     container_name: reggae_masters
     build: 
-      context: ./
+      context: ./api
     networks: 
       - reggae_masters_network
     environment:
