@@ -14,6 +14,7 @@ RUN apk --no-cache --virtual build-dependencies add git python make g++ \
     && yarn cache clean --force \
     && apk del build-dependencies \
 
-EXPOSE 8080
+
 COPY . /usr/src/app
+EXPOSE 8080
 CMD ["yarn", "start"]
