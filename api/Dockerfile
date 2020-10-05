@@ -15,4 +15,5 @@ RUN apk --no-cache --virtual build-dependencies add git python make g++ \
     && apk del build-dependencies
 
 COPY . /usr/src/app
+EXPOSE 200
 CMD ["yarn", "start"]
