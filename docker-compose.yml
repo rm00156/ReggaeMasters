@@ -11,7 +11,7 @@ services:
     environment:
       NODE_ENV: "production"
     ports:
-      - 200:200
+      - "80:80"
 networks:
   reggae_masters_network:
     external: true
