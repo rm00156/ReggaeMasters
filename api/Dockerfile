@@ -1,5 +1,5 @@
 FROM node:10-alpine
-
+PORT=80
 RUN mkdir -p /usr/src/app
 
 WORKDIR /usr/src/app/api
@@ -15,5 +15,5 @@ RUN apk --no-cache --virtual build-dependencies add git python make g++ \
     && apk del build-dependencies
 
 COPY . /usr/src/app
-EXPOSE 200
+EXPOSE 8080
 CMD ["yarn", "start"]
