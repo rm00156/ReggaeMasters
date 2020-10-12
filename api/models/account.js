@@ -10,19 +10,10 @@ module.exports = function(sequelize, Sequelize) {
  
         email: {
             type: Sequelize.STRING,
-            validate: {
-                isEmail: true
-            },
-            allowNull:false,
-            unique: true
+            allowNull:true
         },
 
         password:{
-            type: Sequelize.STRING,
-            allowNull: false
-        },
-
-        name:{
             type: Sequelize.STRING,
             allowNull: true
         },
@@ -31,16 +22,9 @@ module.exports = function(sequelize, Sequelize) {
             type:Sequelize.INTEGER,
             allowNull:false
         },
-        telephoneNumber:{
-            type:Sequelize.STRING,
-            allowNull:true
-        },
-        additionalInfo:{
-            type:Sequelize.STRING,
-            allowNull:true
-        },
-        createdAt: {
-            field:'created_at',
+        
+        createdDttm: {
+            field:'createdDttm',
             type: Sequelize.DATE,
             default: Date.now()
         },
@@ -50,12 +34,23 @@ module.exports = function(sequelize, Sequelize) {
             allowNull:false,
             default:false
         },
-        firstLoginFl:{
+
+        dummyFl:{
             type:Sequelize.BOOLEAN,
-            allowNull:false,
-            default:false
-        }
+            allowNull:false
+        },
         
+        deleteFl:{
+            type:Sequelize.BOOLEAN,
+            allowNull:false
+        },
+
+        versionNo:{
+            type:Sequelize.INTEGER,
+            allowNull:false
+        }
+    },{
+        timestamps:false
     }
 );
  

@@ -1,6 +1,13 @@
 mixin footer()
+    
     footer.footer
       .container
+        if(displayCookieMessage)
+          .row(id="cookieDiv")
+            .col-lg-12.col-md-12
+              .cookie(style="text-align:center")
+                p(style="color:white") By continuing to use our site you agree to us using cookies in accordance with our Cookie Policy.
+                p(id="acceptCookie" style="color:white;cursor:pointer") <u>Accept & Close</u>
         .row
           .col-lg-3.col-md-6.col-sm-6
             .footer__about

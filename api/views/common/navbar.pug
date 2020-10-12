@@ -1,9 +1,9 @@
 mixin navbar(user)
-    
+    script(src="js/navbar.js")
     // Offcanvas Menu Begin
     .offcanvas-menu-overlay
     .offcanvas-menu-wrapper
-      .offcanvas__option
+      //- .offcanvas__option
         .offcanvas__top__hover
           span
             | Usd 
@@ -13,58 +13,216 @@ mixin navbar(user)
             li EUR
             li USD
       .offcanvas__nav__option
-        a.search-switch(href='#')
+        //- a.search-switch(href='#')
           img(src='img/icon/search.png' alt='')
-        a(href='#')
+        //- a(href='#')
           img(src='img/icon/heart.png' alt='')
-        a(href='#')
-          img(src='img/icon/cart.png' alt='')
-          span 0
-        .price $0.00
+        a.up-item(style="padding: .5rem 1rem" ) 
+          .shopping-card
+            i.flaticon-bag(style="color:black")
+            span(style="left: 20px;top:0px;color:white") 0
+        a.up-item
+          .price(style="top:unset") £0.00
+      
+      //- .container(style="text-align:center")
+        div(id="womanMobileHeader" style="width:50%;float:left;border-bottom:5px solid red")
+          p Woman
+        div(id="menMobileHeader" style="width:50%;float:right;")
+          P Men
       #mobile-menu-wrap
-      .offcanvas__text
+      //- .offcanvas__text
         p Free shipping, 30-day return or refund guarantee.
     // Offcanvas Menu End
     // Header Section Begin
     header.header
-      .container
-        .row
-          .col-lg-3.col-md-3
-            .header__logo
-              a(href='/')
+      .header__top
+        .container
+          .row
+            .col-lg-12.col-md-12
+              .header__top__left(style="text-align:center")
+                p FREE SHIPPING FOR ORDERS <b>£50 OR MORE</b>
+                p(style="font-size:8pt") UK DOMESTIC ONLY
+            
+            //- .col-lg-6(style="text-align:center")
+            //-   a(href='/')
+            //-     img(src='img/hero/reggae_banner5.png' style="width:50%;"  alt='')
+            //- .col-lg-3
+            //-   .header__top__right
+            //-     .header__top__links
+            //-       a(href='#') Login
+            //-       a.up-item(style="padding: .5rem 1rem" href="/basket") 
+            //-         .shopping-card
+            //-           i.flaticon-bag(style="color:white")
+            //-           span 0
+            //-       a.up-item
+            //-         .price(style="top:unset") £0.00
+        //- .container(style="margin-left:10px;margin-right:10px;padding-right:0px")
+      div(style="margin-left:10px;margin-right:10px")  
+        .row(style="width:100%")
+          .col-lg-2.col-md-2
+            //- .header__logo(style="max-width:100%")
+            //-   a(href='/')
+            //-     img(src='img/hero/reggae_banner5.png' style="width:50%;"  alt='')
+            div(id="header_logo" style="text-align: center;padding: 26px 0 25px;")
+              a(id="header_" href='/')
                 img(src='img/hero/reggae_banner5.png' alt='')
-          .col-lg-6.col-md-6
+          .col-lg-8.col-md-8
             nav.header__menu.mobile-menu
               ul
-                li.active
-                  a(href='/') Home
                 li
-                  a(href='/') Men
+                  a(href='#' style="color:red") Best Sellers
                 li
-                  a(href='/') Women
-                //-   ul.dropdown
-                    li
-                      a(href='./about.html') About Us
-                    li
-                      a(href='./shop-details.html') Shop Details
-                    li
-                      a(href='./shopping-cart.html') Shopping Cart
-                    li
-                      a(href='./checkout.html') Check Out
-                    li
-                      a(href='./blog-details.html') Blog Details
-                li
-                  a(href='/') Accessories
-                li
-                  a(href='/') Cds/Vinyls
+                  a(href='#') New Arrivals
                 
-          .col-lg-3.col-md-3
+                
+                li
+                  a(href='#') Clothing
+                  ul.dropdown
+                    li
+                      a(href='#') Dresses
+                    li
+                      a(href='#') Hoodies/Jackets
+                    li
+                      a(href='#') T-shirts
+                    li
+                      a(href='#') Dashiki
+                    li
+                      a(href='#') Tracksuits
+                    li
+                      a(href='#') Vests
+                    li
+                      a(href='#') Children
+                    li
+                      a(href='#') Shorts
+                    
+                li
+                  a(href='#') Accessories
+                  ul.dropdown
+                    li
+                      a(href='#') Masks
+                    li
+                      a(href='#') Hats
+                    li
+                      a(href='#') Scarfs
+                    li
+                      a(href='#') Socks
+                    li
+                      a(href='#') Jewellery
+                li
+                  a(href='#') Cds/Vinyls
+                li
+                  a(href='#') Wagwarn
+          .col-lg-2.col-md-2
+            .header__nav__option
+              div(style="float:left;width:30%")
+                ul(style="list-style:none")
+                  li.account-icon
+                    div
+                      i.flaticon-profile
+                    .account-hover
+                      .section
+                        ul(style="list-style:none")
+                          if(user.dummyFl)
+                            li 
+                              a(href="#") Login
+                            li
+                              a(href="#") Sign up
+                          else
+                            li
+                              a(href="#") My Account
+              div(style="float:right;width:70%")
+                ul(style="list-style:none")
+                  li.cart-icon
+
+                    .shopping-card
+                      i.flaticon-bag(style="color:black")
+                      span(style="top:0px;left:20px;color:white") 0
+                    //- a(href='#')
+                      i.icon_bag_alt
+                      span 3
+                    .cart-hover
+                      .select-items
+                        table(style="overflow-y:scroll;height:300px;display:block;")
+                          tbody
+                            tr
+                              td.si-pic
+                                img(src='img/select-product-1.jpg' alt='')
+                              td.si-text
+                                .product-selected
+                                  p $60.00 x 1
+                                  h6 Kabino Bedside Table
+                              td.si-close
+                                i.ti-close
+                            tr
+                              td.si-pic
+                                img(src='img/select-product-2.jpg' alt='')
+                              td.si-text
+                                .product-selected
+                                  p $60.00 x 1
+                                  h6 Kabino Bedside Table
+                              td.si-close
+                                i.ti-close
+                            tr
+                              td.si-pic
+                                img(src='img/select-product-2.jpg' alt='')
+                              td.si-text
+                                .product-selected
+                                  p $60.00 x 1
+                                  h6 Kabino Bedside Table
+                              td.si-close
+                                i.ti-close
+                            tr
+                              td.si-pic
+                                img(src='img/select-product-2.jpg' alt='')
+                              td.si-text
+                                .product-selected
+                                  p $60.00 x 1
+                                  h6 Kabino Bedside Table
+                              td.si-close
+                                i.ti-close
+                            tr
+                              td.si-pic
+                                img(src='img/select-product-2.jpg' alt='')
+                              td.si-text
+                                .product-selected
+                                  p $60.00 x 1
+                                  h6 Kabino Bedside Table
+                              td.si-close
+                                i.ti-close
+                            tr
+                              td.si-pic
+                                img(src='img/select-product-2.jpg' alt='')
+                              td.si-text
+                                .product-selected
+                                  p $60.00 x 1
+                                  h6 Kabino Bedside Table
+                              td.si-close
+                                i.ti-close
+                      .select-total
+                        span total:
+                        h5 £0.00
+                      .select-button
+                        a.primary-btn.view-card(href='#' style="width:100%") VIEW CART
+                        a.primary-btn.checkout-btn(href='#' style="width:100%") CHECK OUT
+                  
+
+                    a.up-item
+                    .price(style="top:unset") £0.00   
+            //- div(style="text-align: center;padding: 26px 0 25px;")
+              a.up-item(style="padding: .5rem 1rem" href="/basket") 
+                .shopping-card
+                  i.flaticon-bag(style="color:black")
+                  span 0
+              a.up-item
+                .price(style="top:unset") £0.00   
+          //- .col-lg-3.col-md-3
             .header__nav__option
               a.search-switch(href='#' style="font-size: 18px;color: #111111;font-weight: 600;position: relative;padding: 3px 0;") Login
-                
-              a(href='#')
-                img(src='img/icon/cart.png' alt='')
-                span 0
-              .price(style="top:unset") £0.00
+              a.up-item(style="padding: .5rem 1rem" href="/basket")
+                span(style="color:white") Basket  
+                .shopping-card
+                  i.flaticon-bag(style="color:white")
+                  span #{basketCount}
+                  .price(style="top:unset") £0.00
         .canvas__open
           i.fa.fa-bars
