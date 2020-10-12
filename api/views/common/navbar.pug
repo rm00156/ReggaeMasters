@@ -72,7 +72,7 @@ mixin navbar(user)
                 li
                   a(href='#' style="color:red") Best Sellers
                 li
-                  a(href='#') New Arrivals
+                  a(href='#' style="color:#4287f5") New Arrivals
                 
                 
                 li
@@ -112,102 +112,111 @@ mixin navbar(user)
                   a(href='#') Cds/Vinyls
                 li
                   a(href='#') Wagwarn
-          .col-lg-2.col-md-2
-            .header__nav__option
-              div(style="float:left;width:30%")
-                ul(style="list-style:none")
-                  li.account-icon
-                    div
-                      i.flaticon-profile
-                    .account-hover
-                      .section
-                        ul(style="list-style:none")
-                          if(user.dummyFl)
-                            li 
-                              a(href="#") Login
-                            li
-                              a(href="#") Sign up
-                          else
-                            li
-                              a(href="#") My Account
-              div(style="float:right;width:70%")
-                ul(style="list-style:none")
-                  li.cart-icon
+          .col-lg-2.col-md-2(id="navbarRight")
+            if(user)
+              .header__nav__option
+                div(style="float:left;width:30%")
+                  ul(style="list-style:none")
+                    li.account-icon
+                      div
+                        i.flaticon-profile
+                      .account-hover
+                        .section
+                          ul(style="list-style:none")
+                            
+                            if(user.dummyFl)
+                              li 
+                                a(href="#") Login
+                              li
+                                a(href="#") Sign up
+                            else
+                              if(user.accountTypeFk == 1)
+                                li
+                                  a(href="/adminDashboard") Dashboard
+                              li
+                                a(href="#") My Account
+                              li
+                                a(href="#") Log Out
+                          
+                if(user.accountTypeFk == 2)              
+                  div(style="float:right;width:70%")
+                    ul(style="list-style:none")
+                      li.cart-icon
 
-                    .shopping-card
-                      i.flaticon-bag(style="color:black")
-                      span(style="top:0px;left:20px;color:white") 0
-                    //- a(href='#')
-                      i.icon_bag_alt
-                      span 3
-                    .cart-hover
-                      .select-items
-                        table(style="overflow-y:scroll;height:300px;display:block;")
-                          tbody
-                            tr
-                              td.si-pic
-                                img(src='img/select-product-1.jpg' alt='')
-                              td.si-text
-                                .product-selected
-                                  p $60.00 x 1
-                                  h6 Kabino Bedside Table
-                              td.si-close
-                                i.ti-close
-                            tr
-                              td.si-pic
-                                img(src='img/select-product-2.jpg' alt='')
-                              td.si-text
-                                .product-selected
-                                  p $60.00 x 1
-                                  h6 Kabino Bedside Table
-                              td.si-close
-                                i.ti-close
-                            tr
-                              td.si-pic
-                                img(src='img/select-product-2.jpg' alt='')
-                              td.si-text
-                                .product-selected
-                                  p $60.00 x 1
-                                  h6 Kabino Bedside Table
-                              td.si-close
-                                i.ti-close
-                            tr
-                              td.si-pic
-                                img(src='img/select-product-2.jpg' alt='')
-                              td.si-text
-                                .product-selected
-                                  p $60.00 x 1
-                                  h6 Kabino Bedside Table
-                              td.si-close
-                                i.ti-close
-                            tr
-                              td.si-pic
-                                img(src='img/select-product-2.jpg' alt='')
-                              td.si-text
-                                .product-selected
-                                  p $60.00 x 1
-                                  h6 Kabino Bedside Table
-                              td.si-close
-                                i.ti-close
-                            tr
-                              td.si-pic
-                                img(src='img/select-product-2.jpg' alt='')
-                              td.si-text
-                                .product-selected
-                                  p $60.00 x 1
-                                  h6 Kabino Bedside Table
-                              td.si-close
-                                i.ti-close
-                      .select-total
-                        span total:
-                        h5 £0.00
-                      .select-button
-                        a.primary-btn.view-card(href='#' style="width:100%") VIEW CART
-                        a.primary-btn.checkout-btn(href='#' style="width:100%") CHECK OUT
-                  
+                        .shopping-card
+                          i.flaticon-bag(style="color:black")
+                          span(style="top:0px;left:20px;color:white") 0
+                        //- a(href='#')
+                          i.icon_bag_alt
+                          span 3
+                        .cart-hover
+                          .select-items
+                            table(style="overflow-y:scroll;height:300px;display:block;")
+                              tbody
+                                tr
+                                  td.si-pic
+                                    img(src='img/select-product-1.jpg' alt='')
+                                  td.si-text
+                                    .product-selected
+                                      p $60.00 x 1
+                                      h6 Kabino Bedside Table
+                                  td.si-close
+                                    i.ti-close
+                                tr
+                                  td.si-pic
+                                    img(src='img/select-product-2.jpg' alt='')
+                                  td.si-text
+                                    .product-selected
+                                      p $60.00 x 1
+                                      h6 Kabino Bedside Table
+                                  td.si-close
+                                    i.ti-close
+                                tr
+                                  td.si-pic
+                                    img(src='img/select-product-2.jpg' alt='')
+                                  td.si-text
+                                    .product-selected
+                                      p $60.00 x 1
+                                      h6 Kabino Bedside Table
+                                  td.si-close
+                                    i.ti-close
+                                tr
+                                  td.si-pic
+                                    img(src='img/select-product-2.jpg' alt='')
+                                  td.si-text
+                                    .product-selected
+                                      p $60.00 x 1
+                                      h6 Kabino Bedside Table
+                                  td.si-close
+                                    i.ti-close
+                                tr
+                                  td.si-pic
+                                    img(src='img/select-product-2.jpg' alt='')
+                                  td.si-text
+                                    .product-selected
+                                      p $60.00 x 1
+                                      h6 Kabino Bedside Table
+                                  td.si-close
+                                    i.ti-close
+                                tr
+                                  td.si-pic
+                                    img(src='img/select-product-2.jpg' alt='')
+                                  td.si-text
+                                    .product-selected
+                                      p $60.00 x 1
+                                      h6 Kabino Bedside Table
+                                  td.si-close
+                                    i.ti-close
+                          .select-total
+                            span total:
+                            h5 £0.00
+                          .select-button
+                            a.primary-btn.view-card(href='#' style="width:100%") VIEW CART
+                            a.primary-btn.checkout-btn(href='#' style="width:100%") CHECK OUT
+                      
 
-                    a.up-item
-                    .price(style="top:unset") £0.00   
+                        a.up-item
+                        .price(style="top:unset") £0.00   
             //- div(style="text-align: center;padding: 26px 0 25px;")
               a.up-item(style="padding: .5rem 1rem" href="/basket") 
                 .shopping-card

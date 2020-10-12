@@ -137,6 +137,10 @@ ol {
 	background-position: top center;
 }
 
+.reggae-section{
+	background-color:#fcf9f0
+}
+
 .spad {
 	padding-top: 100px;
 	padding-bottom: 100px;
@@ -166,6 +170,7 @@ ol {
 	color: #ffffff;
 	background: #000000;
 	letter-spacing: 4px;
+	border: none
 }
 
 .site-btn {

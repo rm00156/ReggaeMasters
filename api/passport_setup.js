@@ -33,6 +33,16 @@ module.exports= function(passport)
                 'email':email
             }
         }).then(user=>{
+            var admin = req.body.admin;
+            
+            if(admin)
+            {
+                if(user.accountTypeFk != 1)
+                {
+                    req.flash('message', 'Incorrect Credentials');
+                    return done(null,false);
+                }
+            }
 
             if(user == null )
             {
