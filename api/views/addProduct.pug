@@ -8,6 +8,7 @@ html(lang='en')
       // Sidebar
       include common/adminNavbar.pug
       +navbar(user)
+      script(src="js/addProduct.js")
       #content-wrapper.d-flex.flex-column
         // Main Content
         #content
@@ -22,13 +23,167 @@ html(lang='en')
             .row
               .col-lg-8.offset-lg-2
                 .card.shadow.mb-4
-        
+                    .card-body(style="text-align:left")
+                        .row
+                          .col-sm-6
+                            label(for="productName" style="text-align:left") Product Name
+                            input.form-control(style="width:100% !important;text-align:left;" id="productName" required=true, name='productName', type='text')
+                            p.small.text-danger(id="productNameError")
+                          .col-sm-6
+                            label(for="price" style="text-align:left") Price (£)
+                            input.form-control(style="width:100% !important;text-align:left;" id="price" required=true, name='price', type='text')
+                            p.small.text-danger(id="priceError")
+                        .row(style="margin-top:10px")
+                          .col-sm-6
+                            label(for="categories" style="text-align:left") Categories
+                            select.form-control(id="categories" style="width:100%")
+                              option(value = 0)
+                              each category in categories
+                                option(value=category.id) #{category.name} 
+                            p.small.text-danger(id="categoriesError")
+                          .col-sm-6
+                            label(for="productType" style="text-align:left") Product Type
+                            select.form-control(id="productType" style="width:100%")
+                            p.small.text-danger(id="productTypeError")
+                        .row(style="margin-top:10px;" id="sizeQuantitySection")
+                          .col-sm-12(style="text-align:center")
+                            label(for="sizeSection" style="text-align:center") Sizes Stock
+                            .row(style="text-align:center")
+                              .col-sm-2.offset-1.size_mobile
+                                label S
+                                input.form-control(type="number" id="small" min=0 style="text-align:center" value=0)
+                              .col-sm-2
+                                label M
+                                input.form-control(type="number" id="medium" min=0 style="text-align:center" value=0)
+                              .col-sm-2
+                                label L
+                                input.form-control(type="number" id="large" min=0 style="text-align:center" value=0)
+                              .col-sm-2
+                                label XL
+                                input.form-control(type="number" id="xl" min=0 style="text-align:center" value=0)
+                              .col-sm-2
+                                label XXL
+                                input.form-control(type="number" id="xxl" min=0 style="text-align:center" value=0)
+                        
+                        .row(style="margin-top:10px;display:none" id="quantitySection")
+                          .col-sm-12(style="text-align:left")
+                            .row(style="text-align:center")
+                              .col-sm-2
+                                label Stock
+                                input.form-control(type="number" style="text-align:center" min=0 id="stock" value=0)
 
+                        .row(style="margin-top:10px;" id="colorsSection")
+                          .col-sm-12(style="text-align:center")
+                            label(for="colorsSection" style="text-align:center") Colors
+                            .row(style="text-align:left")
+                              .col-sm-12
+                                label(style="font-size:12pt") Color 1
+                                select.form-control(id="color1" data-number=1)
+                                  option(value=0) None
+                                  each color in colors
+                                    option(value=color.id) #{color.color}
+                                p.small.text-danger(id="color1Error")
+                            .row(style="margin-top:10px;display:none" id="color1Section")
+                              .col-sm-3
+                                  label.primary-btn(for="color1Picture" style="width:100%;font-size:8pt !important;cursor:pointer;") Main Picture
+                                  input(id="color1Picture" type='file' style="opacity:0" accept="image/x-png,image/jpeg" data-color-number=1)
+                                  p.small.text-danger(id="picture1Error")
+                              .col-sm-3
+                                  label.primary-btn(for="color1Picture2" style="width:100%;font-size:8pt !important;cursor:pointer;") Picture 2
+                                  input(id="color1Picture2" type='file' style="opacity:0" accept="image/x-png,image/jpeg" data-color-number=1)
+                                  p.small.text-danger(id="picture1Error2")
+                              .col-sm-3
+                                  label.primary-btn(for="color1Picture3" style="width:100%;font-size:8pt !important;cursor:pointer;") Picture 3
+                                  input(id='color1Picture3' type='file' style="opacity:0" accept="image/x-png,image/jpeg" data-color-number=1)
+                                  p.small.text-danger(id="picture1Error3")
+                              .col-sm-3
+                                  label.primary-btn(for="color1Picture4" style="width:100%;font-size:8pt !important;cursor:pointer;") Picture 4
+                                  input(id='color1Picture4' type='file' style="opacity:0" accept="image/x-png,image/jpeg" data-color-number=1)
+                                  p.small.text-danger(id="picture1Error4")
+                            .row(style="text-align:left;margin-top:10px;")
+                              .col-sm-12
+                                label(style="font-size:12pt") Color 2
+                                select.form-control(id="color2" data-number=2)
+                                  option(value=0) None
+                                  each color in colors
+                                    option(value=color.id) #{color.color}
+                            .row(style="margin-top:10px;display:none" id="color2Section")
+                              .col-sm-3
+                                label.primary-btn(for="color2Picture" style="width:100%;font-size:8pt !important;cursor:pointer;") Main Picture
+                                input(id='color2Picture' type='file' style="opacity:0" accept="image/x-png,image/jpeg"  data-color-number=2)
+                                p.small.text-danger(id="picture2Error")
+                              .col-sm-3
+                                label.primary-btn(for="color2Picture2" style="width:100%;font-size:8pt !important;cursor:pointer;") Picture 2
+                                input(id='color2Picture2' type='file' style="opacity:0" accept="image/x-png,image/jpeg" data-color-number=2)
+                                p.small.text-danger(id="picture2Error2")
+                              .col-sm-3
+                                label.primary-btn(for="color2Picture3" style="width:100%;font-size:8pt !important;cursor:pointer;") Picture 3
+                                input(id='color2Picture3' type='file' style="opacity:0" accept="image/x-png,image/jpeg" data-color-number=2)
+                                p.small.text-danger(id="picture2Error3")
+                              .col-sm-3
+                                label.primary-btn(for="color2Picture4" style="width:100%;font-size:8pt !important;cursor:pointer;") Picture 4
+                                input(id='color2Picture4' type='file' style="opacity:0" accept="image/x-png,image/jpeg" data-color-number=2)
+                                p.small.text-danger(id="picture2Error4")
 
-
-
-
-
+                            .row(style="text-align:left;margin-top:10px;")
+                              .col-sm-12
+                                label(style="font-size:12pt") Color 3
+                                select.form-control(id="color3" data-number=3)
+                                  option(value=0) None
+                                  each color in colors
+                                    option(value=color.id) #{color.color}
+                            .row(style="margin-top:10px;display:none" id="color3Section")
+                              .col-sm-3
+                                label.primary-btn(for="color3Picture" style="width:100%;font-size:8pt !important;cursor:pointer;") Main Picture
+                                input(id='color3Picture' type='file' style="opacity:0" accept="image/x-png,image/jpeg" data-color-number=3)
+                                p.small.text-danger(id="picture3Error")
+                              .col-sm-3
+                                label.primary-btn(for="color3Picture2" style="width:100%;font-size:8pt !important;cursor:pointer;") Picture 2
+                                input(id='color3Picture2' type='file' style="opacity:0" accept="image/x-png,image/jpeg" data-color-number=3)
+                                p.small.text-danger(id="picture3Error2")
+                              .col-sm-3
+                                label.primary-btn(for="color3Picture3" style="width:100%;font-size:8pt !important;cursor:pointer;") Picture 3
+                                input(id='color3Picture3' type='file' style="opacity:0" accept="image/x-png,image/jpeg" data-color-number=3)
+                                p.small.text-danger(id="picture3Error3")
+                              .col-sm-3
+                                label.primary-btn(for="color3Picture4" style="width:100%;font-size:8pt !important;cursor:pointer;") Picture 4
+                                input(id='color3Picture4' type='file' style="opacity:0" accept="image/x-png,image/jpeg" data-color-number=3)
+                                p.small.text-danger(id="picture3Error4")
+                        
+                        .row(style="margin-top:10px;display:none" id="pictureSection")
+                          .col-sm-3
+                            label.primary-btn(for="picture" style="width:100%;font-size:8pt !important;cursor:pointer;") Main Picture
+                            input(id='picture' type='file' style="opacity:0" accept="image/x-png,image/jpeg" data-color-number="")
+                            p.small.text-danger(id="pictureError")
+                          .col-sm-3
+                            label.primary-btn(for="picture2" style="width:100%;font-size:8pt !important;cursor:pointer;") Picture 2
+                            input(id='picture2' type='file' style="opacity:0" accept="image/x-png,image/jpeg")
+                            p.small.text-danger(id="pictureError2")
+                          .col-sm-3
+                            label.primary-btn(for="picture3" style="width:100%;font-size:8pt !important;cursor:pointer;") Picture 3
+                            input(id='picture3' type='file' style="opacity:0" accept="image/x-png,image/jpeg")
+                            p.small.text-danger(id="pictureError3")
+                          .col-sm-3
+                            label.primary-btn(for="picture4" style="width:100%;font-size:8pt !important;cursor:pointer;") Picture 4
+                            input(id='picture4' type='file' style="opacity:0" accept="image/x-png,image/jpeg")
+                                
+                        .row(style="margin-top:10px;" id="checkboxSection")
+                          .col-sm-4
+                            label(style="text-align:center") Best Seller
+                            br
+                            input(type="checkbox" id="bestSeller" style="text-align:center")
+                          .col-sm-4
+                            label(style="text-align:center") New Arrivals
+                            br
+                            input(type="checkbox" id="newArrivals" style="text-align:center")
+                        .row(style="margin-top:10px;" id="descriptionSection")
+                          .col-sm-12
+                            label(for="description") Description
+                            textarea.form-control(id="description" style="width:100%;margin-bottom:20px" maxlength=255 name="", cols="30", rows="10")
+                            p.small.text-danger(id="descriptionError")
+                        .row(style="margin-top:20px;text-align:center")
+                          .col-sm-12
+                            input.primary-btn(type="submit" id="addProduct" value="Add Product")
 
 
 

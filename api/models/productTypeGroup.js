@@ -19,6 +19,11 @@ module.exports = function(sequelize, Sequelize) {
             allowNull: false
         },
 
+        colorsFl:{
+            type: Sequelize.BOOLEAN,
+            allowNull: false
+        },
+
         deleteFl:{
             type:Sequelize.BOOLEAN,
             allowNull:false

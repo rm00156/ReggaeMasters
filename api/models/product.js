@@ -24,6 +24,11 @@ module.exports = function(sequelize, Sequelize) {
             type:Sequelize.STRING,
             allowNull:false
         },
+
+        picturesFk:{
+            type: Sequelize.STRING,
+            allowNull:false,
+        },
         
         sizeQuantityFk:{
             type: Sequelize.INTEGER,

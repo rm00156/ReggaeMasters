@@ -138,7 +138,7 @@ ol {
 }
 
 .reggae-section{
-	background-color:#fcf9f0
+	background-color:#f8f9fc
 }
 
 .spad {
@@ -3587,6 +3587,7 @@ li.cart-icon {
 	.header__menu ul li {
 		margin-right: 10px;
 	}
+
 	.header__nav__option a {
 		margin-right: 10px;
 	}
@@ -3674,6 +3675,9 @@ li.cart-icon {
 		top: 25px;
 	}
 
+	.size_mobile{
+		margin-left:0px;
+	}
 	#header_ {
 		
 		display:block !important;

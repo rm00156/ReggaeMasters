@@ -1,6 +1,6 @@
 module.exports = function(sequelize, Sequelize) {
  
-    var Color = sequelize.define('color', {
+    var Pictures = sequelize.define('pictures', {
  
         id: {
             autoIncrement: true,
@@ -8,15 +8,26 @@ module.exports = function(sequelize, Sequelize) {
             type: Sequelize.INTEGER
         },
 
-        color: {
+        path1: {
             type: Sequelize.STRING,
             allowNull:false
         },
  
-        hexColor: {
+        path2: {
             type: Sequelize.STRING,
-            allowNull:false
+            allowNull:true
         },
+
+        path3: {
+            type: Sequelize.STRING,
+            allowNull:true
+        },
+ 
+        path4: {
+            type: Sequelize.STRING,
+            allowNull:true
+        },
+        
         
         deleteFl:{
             type:Sequelize.BOOLEAN,
@@ -27,11 +38,12 @@ module.exports = function(sequelize, Sequelize) {
             type:Sequelize.INTEGER,
             allowNull:false
         }
+
     },{
         timestamps:false
     }
 );
  
-    return Color;
+    return Pictures;
  
 }
